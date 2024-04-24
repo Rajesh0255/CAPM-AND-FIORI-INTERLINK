@@ -1,0 +1,166 @@
+<mvc:View controllerName="com.app.project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+  xmlns:layout="sap.ui.layout"
+  >
+    <f:DynamicPage
+        id="idBooksListPage"
+        headerExpanded="true"
+    >
+    <f:header>
+            <f:DynamicPageHeader
+                id="idDynamicPageHeader"
+                pinnable="true"
+            >
+                <HBox id="idFilterHLayout" alignContent="SpaceAround" width="100vw">
+                    <VBox id="idAuthorFilter" class="sapUiSmallMarginEnd">
+                        <Label
+                            id="idAuthorFilterLabel"
+                            text="Author:"
+                        />
+                        <MultiInput
+                            id="idAuthorFilterValue"
+                            value=""
+                        />
+                    </VBox>
+                    <VBox id="idTitleFilter" class="sapUiSmallMarginEnd">
+                        <Label
+                            id="idFTitleFilterLabel"
+                            text="Title:"
+                        />
+                        <MultiInput
+                            id="idTitleFilterValue"
+                            value=""
+                        />
+                    </VBox>
+                    <VBox id="idStockFilter" class="sapUiSmallMarginEnd">
+                        <Label
+                            id="idStockFilterLabel"
+                            text="Stock:"
+                        />
+                        <MultiInput
+                            id="idStockFilterValue"
+                            value=""
+                        />
+                    </VBox>
+                    <VBox id="idPhoneFilter" class="sapUiSmallMarginEnd">
+                        <Label
+                            id="idPhoneFilterLabel"
+                            text="Phone:"
+                        />
+                        <MultiInput
+                            id="idPhoneFilterValue"
+                            value=""
+                            showValueStateMessage="true"
+                        />
+                    </VBox>  
+                    <VBox id="idGoButton" class="sapUiSmallMarginEnd">
+                        <Label
+                            id="idGoButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            id="idGoButtonValue"
+                            text="Go"
+                            type="Emphasized"
+                            press="onGoPress"
+                        />
+                    </VBox>  
+                    <VBox id="idClearFilterButton" class="sapUiSmallMarginEnd">
+                        <Label
+                            id="idClearFilterButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            id="idClearFilterButtonValue"
+                            text="Clear Filter"
+                            type="Emphasized"
+                            press="onClearFilterPress"
+                        />
+                    </VBox>  
+ 
+                </HBox>
+            </f:DynamicPageHeader>
+        </f:header>
+  <f:content>
+            <Table
+                id="idBooksTable"
+                mode="SingleSelectMaster"
+                alternateRowColors="true"
+                items="{/Books}"
+            >
+                <headerToolbar>
+                    <OverflowToolbar id="idBooksTableHeader">
+                        <Title
+                            id="idTableHeaderTitle"
+                            text="Books"
+                        />
+                        <ToolbarSpacer id="idTableHeaderSpacer" />
+                        <Button
+                            id="idBtnCreate"
+                            icon="sap-icon://add"
+                            tooltip="Create Book"
+                            type="Success"
+                        />
+                        <Button
+                            id="idBtnDelete"
+                            icon="sap-icon://delete"
+                            tooltip="Delete Book"
+                            type="Negative"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="idAuthorCol">
+                        <Title
+                            id="idAuthorColTitle"
+                            text="Author"
+                        />
+                    </Column>
+                    <Column id="idTitleCol">
+                        <Title
+                            id="idTitleColTitle"
+                            text="Title"
+                        />
+                    </Column>
+                    <Column id="idStockCol">
+                        <Title
+                            id="idStockColTitle"
+                            text="Stock"
+                        />
+                    </Column>
+                    <Column id="idPhoneCol">
+                        <Title
+                            id="idPhoneColTitle"
+                            text="Phone Number"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="idBooksTableColListItem">
+                        <cells>
+                            <Text
+                                id="idAuthorColValue"
+                                text="{author}"
+                            />
+                            <Text
+                                id="idTitleColValue"
+                                text="{title}"
+                            />
+                            <Text
+                                id="idStockColValue"
+                                text="{stock}"
+                            />
+                            <Text
+                                id="idPhoneColValue"
+                                text="{phone}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+        </f:DynamicPage>
+</mvc:View>
