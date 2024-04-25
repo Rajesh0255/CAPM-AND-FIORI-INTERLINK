@@ -116,6 +116,13 @@
           "target": [
             "TargetView1"
           ]
+        },
+        {
+          "name": "routeNewPage",
+          "pattern":"book/{bookId}/:author:",
+          "target": [
+            "TargetNewPage"
+          ]
         }
       ],
       "targets": {
@@ -125,9 +132,16 @@
           "clearControlAggregation": false,
           "viewId": "View1",
           "viewName": "View1"
+        },
+        "TargetNewPage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "viewId": "Nextpage",
+          "viewName": "Nextpage"
         }
       }
     },
+
     "rootView": {
       "viewName": "com.app.project1.view.App",
       "type": "XML",
@@ -135,4 +149,5 @@
       "id": "App"
     }
   }
+  
 }

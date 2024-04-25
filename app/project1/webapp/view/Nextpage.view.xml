@@ -1,0 +1,27 @@
+<mvc:View xmlns:uxap="sap.uxap" controllerName="com.app.project1.controller.Nextpage"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    >
+
+   
+     <form:SimpleForm id="idBookForm" >
+     <VBox id="_IDGenVBox1" >
+        <Label id="_IDGenLabel1" text="Book Name"></Label>
+        <Text id="_IDGenText2" text="{title}"></Text>
+        </VBox>
+        <VBox id="_IDGenVBox2" >
+        <Label id="_IDGenLabel2" text="Author"></Label>
+        <Text id="_IDGenText3" text="{author}"></Text>
+        </VBox>
+
+        <!-- <uxap:ObjectPageLayout id="_IDGenObjectPageLayout1" >
+        	<uxap:expandedHeading>
+					<m:Title id="_IDGenTitle1" text="{author}" wrapping="true"/>
+				</expandedHeading>
+        </uxap:ObjectPageLayout> -->
+        <!-- <Label text="CTC"/>
+        <Text text="{salary/costToCompany}"/> -->
+    </form:SimpleForm>
+</mvc:View>

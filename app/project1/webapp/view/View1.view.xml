@@ -9,6 +9,7 @@
         id="idBooksListPage"
         headerExpanded="true"
     >
+    
     <f:header>
             <f:DynamicPageHeader
                 id="idDynamicPageHeader"
@@ -90,6 +91,7 @@
                 mode="SingleSelectMaster"
                 alternateRowColors="true"
                 items="{/Books}"
+                selectionChange="onSelectBook"
             >
                 <headerToolbar>
                     <OverflowToolbar id="idBooksTableHeader">
@@ -139,7 +141,7 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem id="idBooksTableColListItem">
+                    <ColumnListItem id="idBooksTableColListItem" type="Navigation">
                         <cells>
                             <Text
                                 id="idAuthorColValue"

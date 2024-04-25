@@ -63,15 +63,15 @@ sap.ui.define([
                 })
                 sTitle.filter((element) => {
 
-                    element ? aFilter.push(new Filter("author", FilterOperator.EQ, element.getKey())) : "";
+                    element ? aFilter.push(new Filter("Title", FilterOperator.EQ, element.getKey())) : "";
                 })
                 sStock.filter((element) => {
 
-                    element ? aFilter.push(new Filter("author", FilterOperator.EQ, element.getKey())) : "";
+                    element ? aFilter.push(new Filter("Stock", FilterOperator.EQ, element.getKey())) : "";
                 })
                 sPhone.filter((element) => {
 
-                    element ? aFilter.push(new Filter("author", FilterOperator.EQ, element.getKey())) : "";
+                    element ? aFilter.push(new Filter("Phone", FilterOperator.EQ, element.getKey())) : "";
                 })
 
                 oTable.getBinding("items").filter(aFilter)
@@ -79,11 +79,21 @@ sap.ui.define([
             },
             onClearFilterPress: function () {
                 const oView = this.getView(),
-                    oAuthor = oView.byId("idAuthorFilterValue").setValue(),
-                    oTitle = oView.byId("idTitleFilterValue").setValue(),
+                    oAuthor = oView.byId("idAuthorFilterValue").removeAllTokens(),
+                    oTitle = oView.byId("idTitleFilterValue").removeAllTokens(),
                     oStock = oView.byId("idStockFilterValue").setValue(),
                     oPhone = oView.byId("idPhoneFilterValue").setValue();
+            },
+            onSelectBook : function (oEvent) {
+              
+                const { ID, author } = oEvent.getSource().getSelectedItem().getBindingContext().getObject();
+                const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("routeNewPage", {
+                    bookId: ID,
+                    author: author
+                })
             }
         });
     });
+
 
